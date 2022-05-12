@@ -1,0 +1,86 @@
+/* Styling from https://www.freecodecamp.org/news/build-a-wordle-clone-in-javascript/ */
+* {
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+  text-align: center;
+  align-items: center;
+  background: black;
+  color: white;
+}
+
+.title-container {
+  text-align: center;
+  border-bottom: solid 1px white;
+}
+
+.game-container {
+  height: 90vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  width: 330px;
+  margin-bottom: 30px;
+  color: white;
+  align-items: center;
+}
+
+.input-container div {
+  display: flex
+}
+
+.input {
+  border: 2px solid gray;
+  border-radius: 3px;
+  margin: 2px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  height: 3rem;
+  width: 3rem;
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+}
+
+.key-container {
+  width: 510px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.key-container button{
+  color: black
+}
+
+.key-container button :nth-child(10)
+.key-container button :nth-child(19)
+
+
+.gameboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.filled-box {
+  border: 2px solid black;
+}
+
+.letter-row {
+  display: flex;
+}
+
+.green {
+  border: 2px solid greenyellow
+}
+
+.blue {
+  border: 2px solid blue
+}
