@@ -3,34 +3,29 @@
   color: white;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 body {
   background: black;
-}
+}  
 
 .title-container {
   text-align: center;
   border-bottom: solid 1px white;
   margin-bottom: 30px;
-}
-
-.game-container {
-  height: 90vh;
-  justify-content: space-between;
-  align-items: center;
-}
-/* removed   display: flex;
-  flex-direction: column; */
+}  
 
 .input-container {
   width: 330px;
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .input-container div {
   display: flex;  
-  width: 330 px;
 }
 
 .input {
@@ -41,17 +36,14 @@ body {
   font-weight: 700;
   height: 3rem;
   width: 3rem;
-  align-items: center;
+  /* align-items: center; */
   text-transform: uppercase;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .key-container {
   width: 380px;
-  align-items: center;
 }
-/* removed and still worked-  display: flex;
-flex-wrap: wrap;*/
 
 .key-container button{
   color: black;
@@ -75,7 +67,7 @@ flex-wrap: wrap;*/
   background-color: grey;
 }
 .flipYellow {
-  background-color: yellow;
+  background-color: rgb(255, 208, 0);
 }
 .flipGreen {
   background-color: green;
