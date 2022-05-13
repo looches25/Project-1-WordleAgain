@@ -82,6 +82,12 @@ makeRows()
         } else {
         AddLetter(event.target.id)}
     })
+
+    $("#refresh").on("click", ()=> {
+        console.log("refresh page")
+        //document.reload()
+    })
+
     
     const AddLetter = (key) => {
         if (currentRow < 6 && currentInputBox < 5 ) {
@@ -108,22 +114,53 @@ makeRows()
         if (currentInputBox > 4) { // it never exceeds 5
             let guessInPlay = rows[currentRow].join('')
             console.log("p: ",wordInPlay, guessInPlay)
+            flipInputBox(currentRow)
 
             if (wordInPlay === guessInPlay) {
                 showMessage("Congrats you've won!")
+                return
             } else 
                 if (currentRow < 5 ) {
                 currentRow ++
                 currentInputBox = 0
                 } else {
-                    showMessage("Try again!")
-                    console.log ("time to refresh page")
+                showMessage("Aww, try again!")
+                refreshPageOption()
+                console.log ("time to refresh page")
+                return
                 }
         }
     }
     const showMessage = (msg) => {
         $message = $("<p>").text(msg)
-        $(".message-container").append($message)
+        $(".message-container").append($message) 
+    }
+    const refreshPageOption =() => {
+        $refresh = $("<button>").attr("id", "refresh").text("Click to Play Again")
+        $(".message-container").append($refresh) 
+    }
+    const flipInputBox = (currentRow) => {
+        const M = `#row${currentRow}`
+        const rowOfInputs = $(M).children().text()
+        console.log("kids of ", currentRow, rowOfInputs)
+        for (let i=0; i<5; i++) {
+            
+            const N = `#row${currentRow}box${i}`
+
+            // console.log(wordInPlay[i], rowOfInputs[i], N)
+            
+            if (wordInPlay[i]===rowOfInputs[i]) {
+                $(N).addClass("flipGreen")
+            } else 
+            if (wordInPlay.includes(rowOfInputs[i])) {
+                $(N).addClass("flipYellow")
+            } else {
+                $(N).addClass("flipGrey")
+            }
+        }
+
+
+
     }
 
 
