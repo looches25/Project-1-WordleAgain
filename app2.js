@@ -317,7 +317,7 @@ makeRows()
             flipInputBox(currentRow)
 
             if (wordInPlay === guessInPlay) {
-                showMessage("Congrats you've won!")
+                showMessage("Correct!")
                 refreshPageOption()
 
             } else 
@@ -325,14 +325,15 @@ makeRows()
                 currentRow ++
                 currentInputBox = 0
                 } else {
-                showMessage("Aww, try again!")
+                showMessage("Try again!")
                 refreshPageOption()
                 }
         }
     }
     const showMessage = (msg) => {
-        $message = $("<p>").text(msg)
-        $(".message-container").append($message) 
+        // $message = $("<p>").text(msg)
+        // $(".message-container").append($message) 
+        $("h1").text(msg)
     }
     const refreshPageOption =() => {
         $refresh = $("<button>").addClass("refresh").text("Click here to play again")
@@ -342,8 +343,6 @@ makeRows()
             location.reload()
         })
     }
-
-
     const flipInputBox = (currentRow) => {
         const M = `#row${currentRow}`
         let rowOfInputs = $(M).children().text() // this is a string
