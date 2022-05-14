@@ -22,7 +22,6 @@ const words = [
 "Chest",
 "Chief",
 "Child",
-"China",
 "Claim",
 "Class",
 "Clock",
@@ -70,7 +69,6 @@ const words = [
 "Group",
 "Guide",
 "Heart",
-"Henry",
 "Horse",
 "Hotel",
 "House",
@@ -78,14 +76,10 @@ const words = [
 "Index",
 "Input",
 "Issue",
-"Japan",
-"Jones",
 "Judge",
 "Knife",
-"Laura",
 "Layer",
 "Level",
-"Lewis",
 "Light",
 "Limit",
 "Lunch",
@@ -112,7 +106,6 @@ const words = [
 "Paper",
 "Party",
 "Peace",
-"Peter",
 "Phase",
 "Phone",
 "Piece",
@@ -153,7 +146,6 @@ const words = [
 "Shirt",
 "Shock",
 "Sight",
-"Simon",
 "Skill",
 "Sleep",
 "Smile",
@@ -211,10 +203,11 @@ const words = [
 "Woman",
 "World",
 "Youth",
+"Yucky",
+"Yeast"
 ];
 const wordIndex = Math.floor(Math.random() * words.length);
 const wordInPlay = words[wordIndex].toUpperCase();
-let currentGuess = "";
 console.log("InPlay:", wordInPlay);
 
 const keys = [
@@ -296,12 +289,6 @@ makeRows()
         AddLetter(event.target.id)}
     })
 
-    $("#refresh").on("click", ()=> {
-        console.log("refresh page")
-        //document.reload()
-    })
-
-    
     const AddLetter = (key) => {
         if (currentRow < 6 && currentInputBox < 5 ) {
         let x = `#row${currentRow}box${currentInputBox}`  
@@ -331,7 +318,8 @@ makeRows()
 
             if (wordInPlay === guessInPlay) {
                 showMessage("Congrats you've won!")
-                return
+                refreshPageOption()
+
             } else 
                 if (currentRow < 5 ) {
                 currentRow ++
@@ -339,8 +327,6 @@ makeRows()
                 } else {
                 showMessage("Aww, try again!")
                 refreshPageOption()
-                console.log ("time to refresh page")
-                return
                 }
         }
     }
@@ -349,43 +335,41 @@ makeRows()
         $(".message-container").append($message) 
     }
     const refreshPageOption =() => {
-        $refresh = $("<button>").attr("id", "refresh").text("Click to Play Again")
+        $refresh = $("<button>").addClass("refresh").text("Click here to play again")
         $(".message-container").append($refresh) 
+
+        $refresh.on("click", ()=> {
+            location.reload()
+        })
     }
+
+
     const flipInputBox = (currentRow) => {
         const M = `#row${currentRow}`
-        const rowOfInputs = $(M).children().text()
-        console.log("kids of ", currentRow, rowOfInputs)
+        let rowOfInputs = $(M).children().text() // this is a string
+        let guess = [] // this is an array
+        
         for (let i=0; i<5; i++) {
-            
             const N = `#row${currentRow}box${i}`
-
-            // console.log(wordInPlay[i], rowOfInputs[i], N)
+            const Z = rowOfInputs[i]
+            const K = `#${Z}`
+            guess.push(Z)
             
             if (wordInPlay[i]===rowOfInputs[i]) {
                 $(N).addClass("flipGreen")
+                $(K).addClass("flipGrey")
+                guess[i] = ''
             } else 
-            if (wordInPlay.includes(rowOfInputs[i])) {
+            if (wordInPlay.includes(rowOfInputs[i]) && guess.includes(rowOfInputs[i])) {
+                console.log(`turn ${i} `, guess)
                 $(N).addClass("flipYellow")
+                $(K).addClass("flipGrey")
+                guess[i] = ''
             } else {
                 $(N).addClass("flipGrey")
-            }
+                $(K).addClass("flipGrey")
+                guess[i] = ''
         }
-
-
-
-    }
-
+    }}
 
 });
-
-/*
-1. User input first row of 4 characters (restricted)
-2. User submits
-- if user did not fill 4 characters, alert error
-3. CheckInput to match each character
-- if user got all correct, alert winner message 
-- if not all correct, change colour of current row's boxes to reflect if correct or wrong
-4. Next row now open for user to input another row of 4
-- if by the 4th row still notcorrect, alert try again message
-*/
