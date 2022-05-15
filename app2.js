@@ -365,7 +365,7 @@ $(() => {
     $refresh = $("<button>")
       .addClass("refresh")
       .text("Click here to play again");
-    $(".message-container").append($refresh);
+    $(".message-container").empty().append($refresh);
 
     $refresh.on("click", () => {
       location.reload();

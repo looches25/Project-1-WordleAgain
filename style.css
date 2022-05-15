@@ -10,31 +10,28 @@ body {
   background: black;
   font-size: 16px;
 }  
-
 h1{
-  font: 4rem;
-}
-.game-container {
-  height: 80%;
+  font-size: 2rem;
 }
 .title-container {
+  height: 6%;
   text-align: center;
   border-bottom: solid 1px white;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
 }  
-
+.game-container {
+  height: 80vh;
+}
 .input-container {
   width: 330px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
 }
-
 .input-container div {
   display: flex;  
 }
-
 .input {
   border: 2px solid gray;
   border-radius: 3px;
@@ -51,7 +48,7 @@ h1{
 
 .key-container {
   width: 380px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
 }
 
 .key-container button{
@@ -83,7 +80,4 @@ h1{
 }
 .flipGreen {
   background-color: green;
-}
-.flipLightGrey {
-  background-color: lightslategray;
 }
