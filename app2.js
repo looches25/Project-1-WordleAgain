@@ -369,6 +369,19 @@ $(() => {
 
     $refresh.on("click", () => {
       location.reload();
+      // ATTEMPT TO RESET
+      // currentRow = 0;
+      // currentInputBox = 0;
+      // rows = [
+      //   ["", "", "", "", ""],
+      //   ["", "", "", "", ""],
+      //   ["", "", "", "", ""],
+      //   ["", "", "", "", ""],
+      //   ["", "", "", "", ""],
+      //   ["", "", "", "", ""],
+      // ];
+      // console.log(words[wordIndex]);
+
     });
   };
   const flipInputBox = (currentRow) => {
