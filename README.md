@@ -1,6 +1,12 @@
 # Project-1-WordleAgain
 This game follows the rules of the popular Wordle game. This project was built with guidance from YouTube tutorial: https://www.youtube.com/watch?v=mpby4HiElek. While the video uses plain vanilla JS, this project uses JQuery.
 
+Game logic works as follows:
+- User has to fill in all 5 boxes in row before it can be checked.
+- Inputs are first checked for "green" - accurate letter match
+- Inputs are then checked for "yellow" or "grey" letter matches
+- Upon all 5 inputs being correct, user wins
+
 # Challenges
 Being new to programming, the mental model for approaching the task was not intuitive to me and guidance from the Youtube video was important to help break down the task into manageable steps. 
 
