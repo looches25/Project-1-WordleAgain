@@ -1,3 +1,4 @@
+// STAGE -- "Trust" as an answer still have wrong yellows if col=1
 const words = [
 "Abuse",
 "Adult",
